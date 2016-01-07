@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+    <!-- Mouse movement data collection, histo is the car of interest -->
+    <script src="./heatmap.js"></script>
+    <script type="text/javascript">
+    // document.onmousemove = handleMouseMove;
+    var histo = [];
+    function handleMouseMove(event) {
+      var dot, eventDoc, doc, body, pageX, pageY;
+
+      event = event || window.event; // IE-ism
+
+      // If pageX/Y aren't available and clientX/Y are,
+      // calculate pageX/Y - logic taken from jQuery.
+      // (This is to support old IE)
+      if (event.pageX == null && event.clientX != null) {
+        eventDoc = (event.target && event.target.ownerDocument) || document;
+        doc = eventDoc.documentElement;
+        body = eventDoc.body;
+
+        event.pageX = event.clientX +
+        (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+        (doc && doc.clientLeft || body && body.clientLeft || 0);
+        event.pageY = event.clientY +
+        (doc && doc.scrollTop || body && body.scrollTop || 0) -
+        (doc && doc.clientTop || body && body.clientTop || 0);
+        }
+      var point = {
+      x: event.pageX,
+      y: event.pageY,
+      val: 499
+        };
+      histo.push(point)
+      }
+    </script>
+
+
+
+    <!-- include in head to initialize TimeMe -->
+    <script src="ifvisible.js"></script>
+    <script src="timeme.js"></script>
+    <script type="text/javascript">
+    TimeMe.setIdleDurationInSeconds(30);
+    TimeMe.setCurrentPageName("my-home-page");
+    TimeMe.initialize();        
+    </script>
+
+    <!-- Time var -->
+    <script type="text/javascript">
+
+        var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+    </script>
+
+  </head>
+  <body>
+
+    <div style="height:600px;width:400px;" class="heatmap" onclick="heatMyMap()" onmousemove="handleMouseMove()">Move the cursor below me and click to see result</div>
+
+  </body>
+
+
+
+</html>
