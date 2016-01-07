@@ -1,0 +1,93 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./heatmap.js"></script>
+    <script type="text/javascript">
+    alert("hello");
+    // document.onmousemove = handleMouseMove;
+    var histo = [];
+    function handleMouseMove(event) {
+      var dot, eventDoc, doc, body, pageX, pageY;
+
+  event = event || window.event; // IE-ism
+
+  // If pageX/Y aren't available and clientX/Y are,
+  // calculate pageX/Y - logic taken from jQuery.
+  // (This is to support old IE)
+  if (event.pageX == null && event.clientX != null) {
+    eventDoc = (event.target && event.target.ownerDocument) || document;
+    doc = eventDoc.documentElement;
+    body = eventDoc.body;
+
+    event.pageX = event.clientX +
+    (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+    (doc && doc.clientLeft || body && body.clientLeft || 0);
+    event.pageY = event.clientY +
+    (doc && doc.scrollTop || body && body.scrollTop || 0) -
+    (doc && doc.clientTop || body && body.clientTop || 0);
+}
+var point = {
+    x: event.pageX,
+    y: event.pageY,
+    val: 499
+};
+histo.push(point)
+//console.log(event.pageX + " , " + event.pageY);
+//document.getElementById("Shivam").innerHTML = histo;
+}
+
+
+
+
+</script>
+<script type="text/javascript">
+ // minimal heatmap instance configuration
+ function heatMyMap(){
+
+    var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+    alert(timeSpentOnPage);
+
+    var heatmapInstance = h337.create({
+  // only container is required, the rest will be defaults
+  container: document.querySelector('.heatmap'),
+  
+  // custom gradient colors
+  gradient: {
+    // enter n keys between 0 and 1 here
+    // for gradient color customization
+    '.55': 'red',
+    '.35': 'yellow',
+    '.15': 'green'
+},
+radius: 50,
+blur: .99
+});
+// heatmap data format
+var data = { 
+  max: 500, 
+  data: histo 
+};
+// if you have a set of datapoints always use setData instead of addData
+// for data initialization
+heatmapInstance.setData(data);
+};
+</script>
+
+<script src="ifvisible.js"></script>
+<script src="timeme.js"></script>
+<script type="text/javascript">
+TimeMe.setIdleDurationInSeconds(30);
+TimeMe.setCurrentPageName("my-home-page");
+TimeMe.initialize();        
+</script>
+
+</head>
+<body>
+
+<div style="height:600px;width:400px;" class="heatmap" onclick="heatMyMap()" onmousemove="handleMouseMove()">Move the cursor below me and click to see result</div>
+
+</body>
+
+
+
+</html>
