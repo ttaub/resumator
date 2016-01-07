@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./heatmap.js"></script>
+      
+    <script type="text/javascript">
+     // minimal heatmap instance configuration
+     function heatMyMap(datapoints){
+
+        var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+        alert(timeSpentOnPage);
+
+        var heatmapInstance = h337.create({
+          // only container is required, the rest will be defaults
+          container: document.querySelector('.heatmap'),
+          
+          // custom gradient colors
+          gradient: {
+            // enter n keys between 0 and 1 here
+            // for gradient color customization
+            '.55': 'red',
+            '.35': 'yellow',
+            '.15': 'green'
+            },
+          radius: 50,
+          blur: .99
+          });
+        // heatmap data format
+        var data = { 
+          max: 500, 
+          data: datapoints 
+          };
+        // if you have a set of datapoints always use setData instead of addData
+        // for data initialization
+        heatmapInstance.setData(data);
+        };
+    </script>
+
+
+
+  </head>
+  <body>
+
+    <div style="height:600px;width:400px;" class="heatmap" onclick="heatMyMap()" onmousemove="handleMouseMove()">Move the cursor below me and click to see result</div>
+
+  </body>
+
+</html>
