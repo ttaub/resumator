@@ -1,0 +1,152 @@
+@font-face {
+	font-weight: bold;
+	font-family: Gotham;
+	src: url(fonts/gothambold.otf) format(opentype);
+}
+
+@font-face {
+	font-family: Jesus;
+	src: url(fonts/helvcond.otf) format(opentype);
+	font-weight: bold;
+}
+
+body {
+	background-color: #f8f8f8;
+}
+
+h1 {
+	font-family: Gotham;
+	font-size: 30px;
+	color: #9b9da0;
+	padding-top: 13%;
+	padding-bottom: 4%;
+	/*text-shadow: 4px 4px 16px #d7d7d7;*/
+}
+
+h1:hover {
+	color: #135b75;
+}
+
+.vertical-center {
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.slogan {
+	padding-top: 4%;
+	font-family: Jesus;
+	font-size: 100px;
+	color: #135b75;
+	/*text-shadow: 4px 4px 8px black;*/
+}
+
+.subtitle {
+	font-family: Jesus;
+	font-size: 40px;
+	color: #a5a5a5;
+}
+
+
+.jumbotron {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.top {
+	width: 60%;
+}
+
+#heatmap {
+	box-shadow: 2px 2px 4px #d7d7d7;
+}
+
+h2 {
+	font-family: Helvetica;
+	font-size: 30pt;
+}
+
+.leftpicture {
+}
+
+.pane {
+	padding-bottom: 4%;
+}
+
+h4 {
+	font-family: Gotham;
+	font-weight: bold;
+	font-size: 34px;
+	padding-top: 5.2%;
+}
+
+p {
+	font-family: helvetica;
+	font-size: 18px;
+}
+
+#instructions {
+	font-size: 18px;
+	padding-bottom: 2%;
+}
+
+h5 {
+	font-family: Gotham;
+	font-weight: bold;
+	font-size: 55px;
+	padding-top: 1%;
+	color: #145b75;
+}
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1a7596), color-stop(1, #135972));
+	background:-moz-linear-gradient(top, #1a7596 5%, #135972 100%);
+	background:-webkit-linear-gradient(top, #1a7596 5%, #135972 100%);
+	background:-o-linear-gradient(top, #1a7596 5%, #135972 100%);
+	background:-ms-linear-gradient(top, #1a7596 5%, #135972 100%);
+	background:linear-gradient(to bottom, #1a7596 5%, #135972 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a7596', endColorstr='#135972',GradientType=0);
+	background-color:#1a7596;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:2px solid #640e0e;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:gotham;
+	font-weight: bold;
+	font-size:38px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+	vertical-align: middle;
+	box-shadow: 2px 2px 3px #110303;
+}
+
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #135972), color-stop(1, #1a7596));
+	background:-moz-linear-gradient(top, #135972 5%, #1a7596 100%);
+	background:-webkit-linear-gradient(top, #135972 5%, #1a7596 100%);
+	background:-o-linear-gradient(top, #135972 5%, #1a7596 100%);
+	background:-ms-linear-gradient(top, #135972 5%, #1a7596 100%);
+	background:linear-gradient(to bottom, #135972 5%, #1a7596 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#135972', endColorstr='#1a7596',GradientType=0);
+	background-color:#135972;
+}
+
+
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#bottombutton {
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
