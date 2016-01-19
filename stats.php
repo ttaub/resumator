@@ -1,40 +1,35 @@
-<pre>
 
 <?php
 
 include('db.php');
 
-$db->select_doc( 1 );
+$result = $db->select_doc( 1 );
 
-// print_r( $_POST );
+echo json_encode( $result );
 
-// echo "bob";
 
-// //get the document id
-// $doc_id = $_POST['doc_id'];
+?>
 
-// // collect info for the polls
-// $google = $_POST['google'];
-// $salary = $_POST['salary'];
-// //add_polls( $doc_id, $google, $salary );
+<html>
+<head>
+	<title> A/B testing statistics </title>
 
-// // collect metric info
-// $histo = $_POST['histo'];
-// $time_spent = $_POST['time_spent'];
-// //add_metrics( $doc_id, $time_spent, $histo );
+	<script type="text/javascript"> 
+		var data = <?php echo json_encode( $result ); ?>
+		console.log( data ); 
+	</script>	
+</head>
+<body>
 
-// // collect the info about links
-// if( exists($_POST['links']) ) {
+  <div style="height:600px;width:400px;background: #999;" class="heatmap" onclick="heatMyMap()" onmousemove="handleMouseMove()">Move the cursor below me and click to see result</div>
 
-// 	$links = $_POST[ 'links' ];
-// 	update_links( $doc_id, $links );
-// }
- 
- 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/heatmap.js"></script>
+  <script src="js/tracking.js"></script>
 
- ?>
+</body>
+</html>
 
-</pre>
 
 
 

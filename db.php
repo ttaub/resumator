@@ -141,7 +141,7 @@ class db {
 		$data['time_spent'] = $this->select_time_spent( $doc_id );
 		$data['links'] = $this->select_links( $doc_id );
 		
-		print_r( $data );
+		//print_r( $data );
 
 		return $data;
 
@@ -180,7 +180,7 @@ class db {
 
 		$result = db::safe_select( $sql );
 
-		print_r( $result );
+		//print_r( $result );
 
 		if( is_array($result) ) {
 
